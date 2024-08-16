@@ -1,0 +1,12 @@
+.product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; 
+  }
+  

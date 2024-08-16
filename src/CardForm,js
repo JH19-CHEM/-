@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+import { TextField, Button, Box } from '@mui/material';
+
+const CardForm = ({ addCard }) => {
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiry, setExpiry] = useState('');
+  const [holderName, setHolderName] = useState('');
+  const [cvc, setCvc] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addCard({ cardNumber, expiry, holderName, cvc });
+    setCardNumber('');
+    setExpiry('');
+    setHolderName('');
+    setCvc('');
+  };
+
+  return (
+    <Box component="form" onSubmit={handleSubmit}>
+      <TextField
+        label="카드 번호"
+        value={cardNumber}
+        onChange={(e) => setCardNumber(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="만료일"
+        value={expiry}
+        onChange={(e) => setExpiry(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="카드 소유자 이름"
+        value={holderName}
+        onChange={(e) => setHolderName(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="CVC"
+        value={cvc}
+        onChange={(e) => setCvc(e.target.value)}
+        fullWidth
+        margin="normal"
+      />
+      <Button type="submit" variant="contained" color="primary">
+        카드 추가
+      </Button>
+    </Box>
+  );
+};
+
+export default CardForm;
